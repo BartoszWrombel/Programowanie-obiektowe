@@ -1,4 +1,4 @@
-﻿//1
+//1
 
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace ConsoleApp1
             double F, C;
             Console.WriteLine("Podaj temp. w stopniach Celsjusza");
             C=double.Parse(Console.ReadLine());
-            F = 32+((9/5d)*C);
+            F = 32 + 9 / 5.0 * C;
             Console.WriteLine(F);
             Console.ReadKey();
         }
@@ -37,14 +37,14 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             double A, B, C, delta;
-            Console.WriteLine("Obliczanie delty rownania kwadratowego ax^2+bx+c=0");
-            Console.WriteLine("Podaj a");
-            A=double.Parse(Console.ReadLine());
-            Console.WriteLine("Podaj b");
+            Console.WriteLine("Obliczanie delty dla rownania kwadratowego a*x^2+bx+c");
+            Console.WriteLine("Podaj wspolczynnik a: ");
+            A = double.Parse(Console.ReadLine());
+            Console.WriteLine("Podaj wspolczynnik b: ");
             B = double.Parse(Console.ReadLine());
-            Console.WriteLine("Podaj c");
+            Console.WriteLine("Podaj wspolczynnik c: ");
             C = double.Parse(Console.ReadLine());
-            delta = ((B * B) - (4 * A * C));
+            delta = (B * B) - (4 * A * C);
             Console.WriteLine(delta);
             Console.ReadKey();
         }
@@ -67,12 +67,12 @@ namespace ConsoleApp1
         {
             double masa, wzrost, BMI;
             Console.WriteLine("Obliczanie wskaznika masy ciala BMI: BMI=masa/wzrost^2");
-            Console.WriteLine("Podaj mase");
-            masa=double.Parse(Console.ReadLine());
-            Console.WriteLine("Podaj wzrost");
+            Console.WriteLine("Podaj wagę w kilogramach");
+            masa = double.Parse(Console.ReadLine());
+            Console.WriteLine("Podaj wzrost w metrach");
             wzrost = double.Parse(Console.ReadLine());
-            BMI = (masa / (wzrost * wzrost));
-            Console.WriteLine(BMI);
+            BMI = masa / (wzrost * wzrost);
+            Console.WriteLine("BMI wynosi " + BMI);
             Console.ReadKey();
         }
     }
@@ -143,6 +143,7 @@ namespace ConsoleApp1
         }
     }
 }
+//x = 3
 
 //7
 using System;
@@ -161,7 +162,9 @@ namespace ConsoleApp1
             x = ++y * 2;
             x = y++;
             x = y--;
+			//x = 7  y = 6
             Console.WriteLine(++y);
+			//y = 7
             Console.ReadKey();
         }
     }
@@ -180,15 +183,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int x , y = 5;
-            x = ++y * 2;
-            x = y++;
-            x = y--;
-            Console.WriteLine(++y);
+            bool x;
+            int y = 1, z = 1;
+            x = (y == 1 && z++ == 1);
+            Console.WriteLine(x);
             Console.ReadKey();
         }
     }
 }
+//a
 
 //9
 
@@ -204,30 +207,47 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            //a)
             /*int x = 1, y = 4, z = 2;
-			bool wynik = (x++ > 1 && y++ == 4 && z-- > 0);
-			Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
-			//b)
-			int x = 1, y = 4, z = 2;
-			bool wynik = (x++ > 1 & y++ == 4 && z-- > 0);
-			Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
-			//c)
-			int x = 1, y = 4, z = 2;
-			bool wynik = (x++ > 1 & y++ == 4 & z-- > 0);
-			Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
-			//d)
-			int x = 1, y = 3, z = 4;
-			bool wynik = (x == 1 || y++ > 2 || ++z > 0);
-			Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
-			//e)
-			int x = 1, y = 3, z = 4;
-			bool wynik = (x == 1 | y++ > 2 || ++z > 0);
-			Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);*/
-			//f)
-			int x = 1, y = 3, z = 4;
-			bool wynik = (x == 1 | y++ > 2 | ++z > 0);
-			Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
-			Console.ReadKey();
+            bool wynik = (x++ > 1 && y++ == 4 && z-- > 0);
+            Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
+            Console.ReadKey();
+            //wynik=false x=2 y=4 z=2
+            */
+            //b)
+            /*int x = 1, y = 4, z = 2;
+            bool wynik = (x++ > 1 & y++ == 4 && z-- > 0);
+            Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
+            Console.ReadKey();
+            //wynik=false x=2 y=5 z=2
+            */
+            //c)
+            /*int x = 1, y = 4, z = 2;
+            bool wynik = (x++ > 1 & y++ == 4 & z-- > 0);
+            Console.Write("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
+            Console.ReadKey();
+            //wynik=false x=2 y=5 z=1
+            */
+            //d)
+            /*int x = 1, y = 3, z = 4;
+            bool wynik = (x == 1 || y++ > 2 || ++z > 0);
+            Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
+            Console.ReadKey();
+            //wynik=true x=1 y=3 z=4
+            */
+            //e)
+            /*int x = 1, y = 3, z = 4;
+            bool wynik = (x == 1 | y++ > 2 || ++z > 0);
+            Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
+            Console.ReadKey();
+            //wynik=true x=1 y=4 z=4
+            */
+            //f)
+            int x = 1, y = 3, z = 4;
+            bool wynik = (x == 1 | y++ > 2 | ++z > 0);
+            Console.WriteLine("wynik={0} x={1} y={2} z={3}", wynik, x, y, z);
+            Console.ReadKey();
+            //wynik=true x=1 y=4 z=5
         }
     }
 }
